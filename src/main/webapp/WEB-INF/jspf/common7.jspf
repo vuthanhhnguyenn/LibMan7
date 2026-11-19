@@ -1,0 +1,54 @@
+<%-- Các hàm dùng chung cho mọi trang JSP --%>
+<%@ page import="java.util.ArrayList, java.util.Date, java.util.Calendar, java.text.SimpleDateFormat" %>
+<%@ page import="model.*, dao.*" %>
+<%!
+    // Thoát ký tự HTML để dữ liệu người dùng nhập không chèn được mã vào trang
+    static String h(Object o) {
+        if (o == null) return "";
+        return o.toString().replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+                .replace("\"", "&quot;").replace("'", "&#39;");
+    }
+
+    // Ngày dạng dd/MM/yyyy để hiển thị
+    static String d(Date x) {
+        return x == null ? "" : new SimpleDateFormat("dd/MM/yyyy").format(x);
+    }
+
+    // Ngày dạng yyyy-MM-dd cho ô input type="date"
+    static String iso(Date x) {
+        return x == null ? "" : new SimpleDateFormat("yyyy-MM-dd").format(x);
+    }
+
+    // Đọc ngày yyyy-MM-dd từ form, sai định dạng thì trả về null
+    static Date parseIso(String s) {
+        try {
+            SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+            f.setLenient(false);
+            return f.parse(s.trim());
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    // Ngày hôm nay, bỏ phần giờ
+    static Date today() {
+        return parseIso(iso(new Date()));
+    }
+
+    // Số tiền dạng 5.000
+    static String money(float v) {
+        return String.format("%,.0f", v).replace(',', '.');
+    }
+
+    // Mã phiếu mượn: PM + 4 chữ số
+    static String receiptCode(int id) {
+        return String.format("PM%04d", id);
+    }
+
+    // Chưa đăng nhập: báo phiên hết hạn; đăng nhập bằng vai trò khác: báo không có quyền
+    static String loginRedirect(String ctx, jakarta.servlet.http.HttpSession s) {
+        boolean other = s.getAttribute("reader") != null || s.getAttribute("manager") != null
+                || s.getAttribute("librarian") != null;
+        return ctx + "/member/LoginView7.jsp?" + (other ? "role=1" : "expired=1");
+    }
+%>

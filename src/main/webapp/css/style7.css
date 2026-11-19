@@ -1,0 +1,37 @@
+* { box-sizing: border-box; }
+body { margin: 0; padding: 24px 12px; background: #fff; font-family: Arial, "Liberation Sans", sans-serif; font-size: 14px; color: #000; }
+.page { width: 760px; max-width: 100%; margin: 0 auto; border: 1px solid #999; padding: 18px 26px 24px; }
+h1 { font-size: 20px; text-align: center; margin: 2px 0 8px; }
+.sub { text-align: center; margin: 0 0 16px; }
+.btn, button, input[type=submit] { display: inline-block; border: 1px solid #333; background: #e6e6e6; padding: 5px 18px; font: inherit; color: #000; text-decoration: none; cursor: pointer; text-align: center; }
+.btn:hover, button:hover, input[type=submit]:hover { background: #d6d6d6; }
+button[disabled], input[disabled] { color: #777; cursor: default; }
+.menu .btn { display: block; width: 300px; margin: 9px auto; }
+.center { text-align: center; margin-top: 16px; }
+table.f { border-collapse: collapse; margin: 0 auto; }
+table.f td { padding: 4px 6px; vertical-align: top; }
+table.f td.l { width: 200px; padding-top: 8px; }
+table.f input[type=text], table.f input[type=email], table.f input[type=date], table.f select { width: 300px; border: 1px solid #777; padding: 4px 7px; font: inherit; }
+table.f input.s, table.f select.s { width: 160px; }
+table.f input[readonly] { background: #f0f0f0; }
+.bad { border-color: #c00 !important; }
+.err { color: #c00; font-size: 12px; margin-top: 3px; }
+.errbox { color: #c00; text-align: center; font-size: 13px; margin-bottom: 10px; }
+.note { font-size: 12px; padding-top: 6px; }
+table.t { border-collapse: collapse; width: 100%; }
+table.t th, table.t td { border: 1px solid #333; padding: 4px 6px; text-align: left; font-size: 13px; }
+table.t th { background: #e6e6e6; }
+table.t td.n { text-align: right; }
+a { color: #000; }
+.info { display: grid; grid-template-columns: auto auto; column-gap: 30px; row-gap: 5px; margin: 4px 0 14px; justify-content: start; }
+.links { width: 380px; margin: 6px auto 0; }
+.links div { margin: 10px 0; }
+.dates { margin: 6px 0 14px; }
+.dates input { border: 1px solid #777; padding: 4px 7px; font: inherit; }
+.tot { margin-top: 8px; }
+.blank { min-height: 260px; display: flex; align-items: center; justify-content: center; background: #f4f4f4; }
+.dlg { width: 430px; border: 2px solid #222; background: #fff; }
+.dlg .hd { background: #e6e6e6; border-bottom: 1px solid #222; padding: 6px 10px; }
+.dlg .bd { padding: 14px 18px 6px; text-align: center; line-height: 1.55; }
+.dlg .ft { text-align: center; padding: 10px 0 14px; }
+.dlg .ft .btn { padding: 4px 26px; }
